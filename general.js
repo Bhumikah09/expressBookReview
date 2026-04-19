@@ -2,28 +2,40 @@ const axios = require('axios');
 
 const BASE_URL = "http://localhost:5000";
 
-// Get all books
 async function getAllBooks() {
-    const res = await axios.get(`${BASE_URL}/`);
-    return res.data;
+    try {
+        const res = await axios.get(`${BASE_URL}/`);
+        return res.data;
+    } catch (error) {
+        return "Error fetching books";
+    }
 }
 
-// Get book by ISBN
 async function getBookByISBN(isbn) {
-    const res = await axios.get(`${BASE_URL}/isbn/${isbn}`);
-    return res.data;
+    try {
+        const res = await axios.get(`${BASE_URL}/isbn/${isbn}`);
+        return res.data;
+    } catch (error) {
+        return "ISBN not found";
+    }
 }
 
-// Get books by author
 async function getBooksByAuthor(author) {
-    const res = await axios.get(`${BASE_URL}/author/${author}`);
-    return res.data;
+    try {
+        const res = await axios.get(`${BASE_URL}/author/${author}`);
+        return res.data;
+    } catch (error) {
+        return "Author not found";
+    }
 }
 
-// Get books by title
 async function getBooksByTitle(title) {
-    const res = await axios.get(`${BASE_URL}/title/${title}`);
-    return res.data;
+    try {
+        const res = await axios.get(`${BASE_URL}/title/${title}`);
+        return res.data;
+    } catch (error) {
+        return "Title not found";
+    }
 }
 
 module.exports = {
